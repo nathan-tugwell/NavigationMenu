@@ -12,9 +12,11 @@
 		5D99C1382190590F00D7497D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D99C1362190590F00D7497D /* Main.storyboard */; };
 		5D99C13A2190591000D7497D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D99C1392190591000D7497D /* Assets.xcassets */; };
 		5D99C13D2190591000D7497D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D99C13B2190591000D7497D /* LaunchScreen.storyboard */; };
+		F40C069258D11212A33BBC2D /* Pods_NavigationMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A70CC32D36502DE9C2BE16F /* Pods_NavigationMenu.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D0DA2CB716D6191CD30AB07 /* Pods-NavigationMenu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NavigationMenu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NavigationMenu/Pods-NavigationMenu.debug.xcconfig"; sourceTree = "<group>"; };
 		5D99C12F2190590F00D7497D /* NavigationMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D99C1322190590F00D7497D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D99C1342190590F00D7497D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		5D99C1392190591000D7497D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D99C13C2190591000D7497D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5D99C13E2190591000D7497D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BEA009B43A1C425C7022472 /* Pods-NavigationMenu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NavigationMenu.release.xcconfig"; path = "Pods/Target Support Files/Pods-NavigationMenu/Pods-NavigationMenu.release.xcconfig"; sourceTree = "<group>"; };
+		8A70CC32D36502DE9C2BE16F /* Pods_NavigationMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NavigationMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F40C069258D11212A33BBC2D /* Pods_NavigationMenu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				5D99C1312190590F00D7497D /* NavigationMenu */,
 				5D99C1302190590F00D7497D /* Products */,
+				D114F33DB434658C9E3A10D8 /* Pods */,
+				DE37DFEBA6A8F166467E843A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = NavigationMenu;
 			sourceTree = "<group>";
 		};
+		D114F33DB434658C9E3A10D8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D0DA2CB716D6191CD30AB07 /* Pods-NavigationMenu.debug.xcconfig */,
+				7BEA009B43A1C425C7022472 /* Pods-NavigationMenu.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DE37DFEBA6A8F166467E843A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A70CC32D36502DE9C2BE16F /* Pods_NavigationMenu.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5D99C1412190591000D7497D /* Build configuration list for PBXNativeTarget "NavigationMenu" */;
 			buildPhases = (
+				2E83BAE508A89E88CA406505 /* [CP] Check Pods Manifest.lock */,
 				5D99C12B2190590F00D7497D /* Sources */,
 				5D99C12C2190590F00D7497D /* Frameworks */,
 				5D99C12D2190590F00D7497D /* Resources */,
+				0EB45123D0E3E4CEA0E72C30 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EB45123D0E3E4CEA0E72C30 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NavigationMenu/Pods-NavigationMenu-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SlideMenuControllerSwift/SlideMenuControllerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlideMenuControllerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NavigationMenu/Pods-NavigationMenu-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2E83BAE508A89E88CA406505 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NavigationMenu-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5D99C12B2190590F00D7497D /* Sources */ = {
@@ -280,15 +353,13 @@
 		};
 		5D99C1422190591000D7497D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D0DA2CB716D6191CD30AB07 /* Pods-NavigationMenu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y622K8R6P2;
 				INFOPLIST_FILE = NavigationMenu/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.nathantugwell.NavigationMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -298,15 +369,13 @@
 		};
 		5D99C1432190591000D7497D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BEA009B43A1C425C7022472 /* Pods-NavigationMenu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y622K8R6P2;
 				INFOPLIST_FILE = NavigationMenu/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.nathantugwell.NavigationMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
