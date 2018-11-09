@@ -10,7 +10,7 @@ import Foundation
 
 typealias CompletionHandler = (_ Success: Bool) -> ()
 
-let URL = "https://s3-eu-west-1.amazonaws.com/api.themeshplatform.com/nav.json"
+//let URL = "https://s3-eu-west-1.amazonaws.com/api.themeshplatform.com/nav.json"
 let HEADER = [
     "Content-Type": "application/json; charset=utf-8"
 ]

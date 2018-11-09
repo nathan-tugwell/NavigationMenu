@@ -9,6 +9,6 @@
 import Foundation
 
 struct Menu {
-    public private(set) var MenuName: String!
+    public private(set) var menuName: String!
     public private(set) var navigationName: String!
 }
