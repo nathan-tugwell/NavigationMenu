@@ -8,68 +8,91 @@
 
 import UIKit
 
-struct Menu: Decodable {
-    var nav = [Menus]()
-    
-}
-
-struct Menus: Decodable {
-    var name: String
-}
-
 
 class MenuViewController: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
     
-    var menu: Menu?
+    var navDict = [ [String: Any] ]()
+    var allNames = [String]()
     
-    let API_URL = "https://s3-eu-west-1.amazonaws.com/api.themeshplatform.com/nav.json"
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let url = URL(string: API_URL) else { return }
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data = data else { return }
-            do {
-                let decoder = JSONDecoder()
-                self.menu = try decoder.decode(Menu.self, from: data)
-//                print(self.menu?.nav as Any)
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-                
-            } catch let error {
-                print("failed", error)
-            }
-            }.resume()
+        
+        parseURL(url: "https://s3-eu-west-1.amazonaws.com/api.themeshplatform.com/nav.json")
         
     }
+    
+    
+    func parseURL(url: String) {
+        let url = URL(string: url)!
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                DispatchQueue.main.asyncAfter(deadline: .now() ) {
+                    
+                }
+            } else {
+                do {
+                    let parsedData = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                    
+                    for (key, value) in parsedData {
+                        //                            print("( \(key) --- \(value) " )
+                        if (key == "nav") {
+                            if let childrenArray:[ [String:Any] ] = value as? [ [String:Any] ] {
+                                self.navDict = childrenArray
+                                print(childrenArray.count)
+                                for dict in childrenArray {
+                                    for (key, value) in dict {
+                                        if (key == "name") {
+                                            self.allNames.append(value as! String)
+                                            print(self.allNames)
+                                    } else if (key == "children") {
+                                        if let childrenDict:  [String:Any] = value as? [String: Any]  {
+                                            if (key == "name") {
+                                                print(childrenDict)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    }
+            } catch let error as NSError {
+                print(error)
+                DispatchQueue.main.asyncAfter(deadline: .now() ) {
+                    
+                }
+            }
+        }
+    }.resume()
+}
 
 }
 
 extension MenuViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.menu?.nav.count ?? 0
+        return self.allNames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? TableViewCell
         
         if cell == nil {
-            cell = UITableViewCell.init(style: .value1, reuseIdentifier: "cell")
+            cell = TableViewCell.init(style: .value1, reuseIdentifier: "cell")
         }
-        let navItem = self.menu?.nav[indexPath.row]
-        cell?.textLabel?.text = navItem?.name
+        
+        let navItem = self.allNames[indexPath.row]
+        cell?.nameLabel?.text = navItem
+        
         cell?.accessoryView = UIImageView(image: UIImage(named: "icons8-chevron-right-50"))
         
         return cell!
     }
-    
-    
 }
+
+
 
 extension MenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -83,3 +106,4 @@ extension MenuViewController: UITableViewDelegate {
         return 0.1
     }
 }
+
